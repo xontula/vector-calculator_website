@@ -10,7 +10,9 @@ export function App() {
               <tr>
                 <td>
                   <div>
-                    <table id="table1"></table>
+            <table id="table1">
+              
+            </table>
                   </div>
                 </td>
               </tr>
