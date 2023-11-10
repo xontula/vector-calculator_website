@@ -21,8 +21,3 @@ export function Navbar() {
         </header>
     );
 }
-
-<ul>
-|   Placeholder 1   |
-    Placeholder 2   |
-</ul>
