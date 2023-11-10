@@ -1,3 +1,15 @@
+# Instructions for running the frontend 
+
+The npm package manager is used to run the project frontend, which requires installing the Node.js framework. The project is currently using version 18.17.1 of Node, but should work on newer versions aswell.
+
+After a successful installation of Node.js, the npm package manager can be used. Navigate to the frontend-directory of the project through a terminal, and do the following:
+
+```
+npm install
+```
+
+This should fetch the modules and dependencies of the project after which you can run the project frontend with ``` npm run dev ```. 
+
 # Instructions for running the backend server
 
 Requirements to install:
