@@ -1,24 +1,17 @@
-import './App.css'
+import './css/App.css'
+import { Navbar } from './components/navbar'
+import { BaseTable } from './components/tables'
 
 export function App() {
-
   return (
-    <>
-      <div className="center-content">
-          <table id="main-table">
-            <tbody>
-              <tr>
-                <td>
-                  <div>
-            <table id="table1">
-              
-            </table>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-    </>
+  <>
+    <div className="center-content">
+        <Navbar/>
+    </div>
+
+    <div className="center-content">
+        <BaseTable/>
+    </div>
+  </>
   )
 }
