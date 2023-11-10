@@ -1,10 +1,10 @@
-### Instructions for running the backend server
+# Instructions for running the backend server
 
 ```
 pip install -r requirements.txt
 ```
 
-# Configuring virtual environment
+### Configuring virtual environment
 
 The initial Poetry files including dependencies should already be generated and included in the repository, so all there is left to do is to configure the project virtual environment.
 
@@ -22,13 +22,13 @@ poetry install
 
 Now the virtual environment should be ready to use. 
 
-# Opening a shell within the virtual environment
+### Opening a shell within the virtual environment
 
 ```
 poetry shell
 ```
 
-# Using Uvicorn to run server program
+### Using Uvicorn to run server program
 
 The FastAPI framework is used in conjunction with the Uvicorn ASGI server for this project.   
 After we have opened a shell that is running inside the virtual environment we created earlier with Poetry, we can run the backend server on a local device. The command below sets the server to run on port 5000, but can be changed or even completely omitted. The --reload flag can also be omitted. 
