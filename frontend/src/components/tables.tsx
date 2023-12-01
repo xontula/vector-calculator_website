@@ -1,25 +1,65 @@
-export function BaseTable() {
-    return (
-    <table id="main-table">
-        <tbody>
-            <tr>
-            <td>
-                <ContentTable/>
-            </td>
-            </tr>
-        </tbody>
-    </table>
-    );
+export function ContentBody() {
+  return (
+    <div
+      style={{
+        backgroundColor: "antiquewhite",
+        padding: "2px",
+        maxWidth: "800px",
+      }}
+    >
+      <div
+        style={{
+          border: "6px ridge rgb(85, 39, 83)",
+          padding: "30px",
+          paddingBottom: "100px",
+        }}
+      >
+        <Content />
+      </div>
+    </div>
+  );
 }
 
-function ContentTable() {
-    return (
+function Content() {
+  return (
     <div>
-        <table id="table1">
-        <h1 id="table1_h1">
-            Vector Calculator
-        </h1>
-        </table>
+      <h1 id="table1_h1">Vector Calculator</h1>
+
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
+        quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
+        corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+        voluptas nulla pariatur?
+      </p>
+
+      <div className="centered">
+        <input
+          type="number"
+          style={{
+            marginTop: "75px",
+            marginRight: "60px",
+            width: "55px",
+          }}
+        />
+
+        <input
+          type="number"
+          style={{
+            marginTop: "75px",
+            marginLeft: "60px",
+            width: "55px",
+          }}
+        />
+      </div>
     </div>
-    );
+  );
 }
