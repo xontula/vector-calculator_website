@@ -5,11 +5,6 @@
   align-items: center;
 }
 
-.centered {
-  place-items: center;
-  text-align: center;
-}
-
 #table1_h1 {
   text-decoration: underline;
   text-align: center;
@@ -44,4 +39,9 @@
   width: 150px;
   color: white;
   font-family: "Times New Roman", Times, serif;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 200;
 }

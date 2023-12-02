@@ -41,24 +41,40 @@ function Content() {
         voluptas nulla pariatur?
       </p>
 
-      <div className="centered">
+      <div style={{ width: "220px" }}>
+        <label>Amount of vectors? </label>
         <input
+          id="quantity"
           type="number"
+          min="0"
+          max="23"
           style={{
-            marginTop: "75px",
-            marginRight: "60px",
-            width: "55px",
+            marginTop: "25px",
+            width: "40px",
           }}
         />
+      </div>
+      <div style={{ width: "270px" }}>
+        <label>Dimension of the vectors? </label>
+        <input
+          id="dimension"
+          type="number"
+          min="0"
+          max="40"
+          style={{
+            marginTop: "25px",
+            width: "40px",
+          }}
+        />
+      </div>
+      <div style={{ marginTop: "35px" }}>
+        <button id="generate">Generate vectors</button>
 
-        <input
-          type="number"
-          style={{
-            marginTop: "75px",
-            marginLeft: "60px",
-            width: "55px",
-          }}
-        />
+        <div style={{ marginTop: "35px" }}>
+          <label>Enter values for each vector:</label>
+        </div>
+
+        <div style={{ width: "728px", marginTop: "25px" }}>...</div>
       </div>
     </div>
   );
