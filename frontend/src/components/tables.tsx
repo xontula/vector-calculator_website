@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Vectors from "./arrays.tsx";
+
 export function ContentBody() {
   return (
     <div
@@ -20,7 +23,15 @@ export function ContentBody() {
   );
 }
 
-function Content() {
+export function Content() {
+  const [dimension, setDimension] = useState(0);
+  const [quantity, setQuantity] = useState(0);
+  const [visible, setButtonVisible] = useState(false);
+
+  const unhideButton = () => {
+    setButtonVisible(true);
+  };
+
   return (
     <div>
       <h1 id="table1_h1">Vector Calculator</h1>
@@ -41,40 +52,82 @@ function Content() {
         voluptas nulla pariatur?
       </p>
 
+      <div>
+        {visible && (
+          <button
+            id="calculate"
+            style={{
+              float: "right",
+              marginRight: "135px",
+              backgroundColor: "rgb(50, 20, 51)",
+              color: "antiquewhite",
+              fontSize: "16px",
+              boxShadow: "2px 2px 4px 2px black",
+            }}
+          >
+            Calculate
+          </button>
+        )}
+      </div>
+
       <div style={{ width: "220px" }}>
         <label>Amount of vectors? </label>
         <input
           id="quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(parseInt(e.target.value))}
           type="number"
           min="0"
-          max="23"
+          max="10"
           style={{
             marginTop: "25px",
             width: "40px",
           }}
         />
       </div>
+
       <div style={{ width: "270px" }}>
         <label>Dimension of the vectors? </label>
         <input
           id="dimension"
+          value={dimension}
+          onChange={(e) => setDimension(parseInt(e.target.value))}
           type="number"
           min="0"
-          max="40"
+          max="20"
           style={{
             marginTop: "25px",
             width: "40px",
           }}
         />
       </div>
-      <div style={{ marginTop: "35px" }}>
-        <button id="generate">Generate vectors</button>
 
-        <div style={{ marginTop: "35px" }}>
+      <div>
+        <button
+          id="operation"
+          onClick={unhideButton}
+          style={{
+            margin: "20px",
+            backgroundColor: "rgb(50, 20, 51)",
+            color: "antiquewhite",
+            fontSize: "16px",
+            boxShadow: "2px 2px 4px 2px black",
+          }}
+        >
+          Select operation:
+        </button>
+      </div>
+      <div>
+        <div style={{ marginTop: "20px" }}>
           <label>Enter values for each vector:</label>
         </div>
-
-        <div style={{ width: "728px", marginTop: "25px" }}>...</div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          {Array(quantity)
+            .fill(0)
+            .map((_, quantity) => (
+              <Vectors dimension={dimension} key={quantity} />
+            ))}
+        </div>
       </div>
     </div>
   );
