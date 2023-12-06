@@ -27,6 +27,37 @@ export function Content() {
   const [dimension, setDimension] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [visible, setButtonVisible] = useState(false);
+  const [data, setData] = useState<number[][]>([]);
+
+  const setAmount = (size: number) => {
+    setQuantity(size);
+    setData((d) => {
+      while (d.length < size) {
+        d.push(Array(dimension).fill(0));
+      }
+      while (d.length > size) {
+        d.pop();
+      }
+      return d;
+    });
+  };
+
+  const setSize = (size: number) => {
+    setDimension(size);
+    setData((d) => {
+      for (let vector of d) {
+        while (vector.length < size) {
+          vector.push(0);
+        }
+        while (vector.length > size) {
+          vector.pop();
+        }
+      }
+      return d;
+    });
+  };
+
+  console.log(data);
 
   const unhideButton = () => {
     setButtonVisible(true);
@@ -75,7 +106,7 @@ export function Content() {
         <input
           id="quantity"
           value={quantity}
-          onChange={(e) => setQuantity(parseInt(e.target.value))}
+          onChange={(e) => setAmount(parseInt(e.target.value))}
           type="number"
           min="0"
           max="10"
@@ -91,7 +122,7 @@ export function Content() {
         <input
           id="dimension"
           value={dimension}
-          onChange={(e) => setDimension(parseInt(e.target.value))}
+          onChange={(e) => setSize(parseInt(e.target.value))}
           type="number"
           min="0"
           max="20"
@@ -107,7 +138,10 @@ export function Content() {
           id="operation"
           onClick={unhideButton}
           style={{
-            margin: "20px",
+            marginRight: "20px",
+            marginLeft: "20px",
+            marginTop: "20px",
+            marginBottom: "45px",
             backgroundColor: "rgb(50, 20, 51)",
             color: "antiquewhite",
             fontSize: "16px",
@@ -117,6 +151,7 @@ export function Content() {
           Select operation:
         </button>
       </div>
+
       <div>
         <div style={{ marginTop: "20px" }}>
           <label>Enter values for each vector:</label>
@@ -124,8 +159,8 @@ export function Content() {
         <div style={{ display: "flex", flexDirection: "row" }}>
           {Array(quantity)
             .fill(0)
-            .map((_, quantity) => (
-              <Vectors dimension={dimension} key={quantity} />
+            .map((_, x) => (
+              <Vectors dimension={dimension} key={x} />
             ))}
         </div>
       </div>
