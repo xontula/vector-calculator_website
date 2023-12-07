@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Vectors from "./arrays.tsx";
 
 export function ContentBody() {
   return (
@@ -53,6 +52,13 @@ export function Content() {
           vector.pop();
         }
       }
+      return d;
+    });
+  };
+
+  const setField = (row: number, column: number, value: number) => {
+    setData((d) => {
+      d[row][column] = value;
       return d;
     });
   };
@@ -160,7 +166,22 @@ export function Content() {
           {Array(quantity)
             .fill(0)
             .map((_, x) => (
-              <Vectors dimension={dimension} key={x} />
+              <div key={x} style={{ display: "flex", flexDirection: "column" }}>
+                {Array(dimension)
+                  .fill(0)
+                  .map((_, y) => (
+                    <input
+                      style={{
+                        marginLeft: "5px",
+                        marginRight: "5px",
+                        width: "18px",
+                        height: "18px",
+                      }}
+                      key={y}
+                      onChange={(e) => setField(x, y, parseInt(e.target.value))}
+                    />
+                  ))}
+              </div>
             ))}
         </div>
       </div>

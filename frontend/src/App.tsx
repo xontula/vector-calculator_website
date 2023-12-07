@@ -1,6 +1,6 @@
 import "./css/App.css";
 import { Navbar } from "./components/navbar";
-import { ContentBody } from "./components/tables";
+import { ContentBody } from "./components/content";
 
 export function App() {
   return (
